@@ -1,60 +1,25 @@
-! ============================
-! dygang.net 专用去广告规则
-! 适用：AdGuard（含 iOS Safari/Arc）
-! ============================
+! Title: dygang.net AdGuard iOS Filter
+! Description: Block popup/floating/redirect ads on dygang.net
 
-! 顶部横幅广告
-dygang.net##.headerad
-dygang.net##.topad
-dygang.net##div[id^="topad"]
-dygang.net##div[class*="top-ad"]
+||www.dygang.net/jtrtytcdz45yfh3456.js$script,domain=www.dygang.net
+||www.dygang.net/d/tj.js$script,domain=www.dygang.net
+||www.dygang.net/1endsd5643.js$script,domain=www.dygang.net
 
-! 底部悬浮广告
-dygang.net##.footerad
-dygang.net##div[id^="footerad"]
-dygang.net##div[class*="footer-ad"]
-dygang.net##[style*="position: fixed"][style*="bottom"]
+||dyg123.net^
+||66hao.cc^
+||66tutup.com^
+||hao6v.cc^
+||5266ys.com^
 
-! 右侧悬浮/客服类广告
-dygang.net##div[id^="kf"]
-dygang.net##div[class*="kf"]
-dygang.net##div[class*="float"]
-dygang.net##div[id*="float"]
-
-! iframe 广告（大量广告通过 iframe 注入）
-dygang.net##iframe[src*="ads"]
-dygang.net##iframe[src*="ad."]
-dygang.net##iframe[src*="/ad/"]
-dygang.net##iframe[src*="pop"]
-dygang.net##iframe[src*="click"]
-dygang.net##iframe[src*="jump"]
-
-! 详情页、列表页广告块
-dygang.net##.ad
-dygang.net##.ads
-dygang.net##.adsbox
-dygang.net##div[id^="ads"]
-dygang.net##div[class*="ads"]
-
-! 下载页广告
-dygang.net##.downad
-dygang.net##div[id^="downad"]
-dygang.net##div[class*="down-ad"]
-
-! 伪装成“推荐/猜你喜欢”的广告区块
-dygang.net##.tuijian
-dygang.net##div[class*="tj"]
-dygang.net##div[id*="tj"]
-
-! 自动跳转、弹窗相关脚本（按路径名粗拦）
-||dygang.net/js/*ad*.js$script
-||dygang.net/js/*pop*.js$script
-||dygang.net/js/*click*.js$script
-||dygang.net/js/*jump*.js$script
-||dygang.net/*redirect*$script
-||dygang.net/*jump*$script
-||dygang.net/*go.php*$script
-
-! 通用固定定位广告（激进一点）
-dygang.net##[style*="position:fixed"][style*="right"]
-dygang.net##[style*="position:fixed"][style*="left"]
+www.dygang.net###Layer1
+www.dygang.net##iframe[src*="66hao.cc"]
+www.dygang.net##iframe[src*="66tutup.com"]
+www.dygang.net##a[href*="dyg123.net"]
+www.dygang.net##a[href*="66hao.cc"]
+www.dygang.net##a[href*="66tutup.com"]
+www.dygang.net##a[href*="hao6v.cc"]
+www.dygang.net##a[href*="5266ys.com"]
+www.dygang.net##.ad
+www.dygang.net##[id^="ad"]
+www.dygang.net##[class^="ad"]
+www.dygang.net##[class*=" ad"]
