@@ -1,0 +1,20 @@
+#!name=DYGang Ad Block
+#!desc=拦截 dygang.net 悬浮/弹窗/跳转广告（Loon）
+#!author=codex
+#!date=2026-03-18
+
+[Rule]
+DOMAIN-SUFFIX,dyg123.net,REJECT
+DOMAIN-SUFFIX,66hao.cc,REJECT
+DOMAIN-SUFFIX,66tutup.com,REJECT
+DOMAIN-SUFFIX,hao6v.cc,REJECT
+DOMAIN-SUFFIX,5266ys.com,REJECT
+
+[Rewrite]
+^https?:\/\/www\.dygang\.net\/jtrtytcdz45yfh3456\.js - reject-dict
+^https?:\/\/www\.dygang\.net\/1endsd5643\.js - reject-dict
+^https?:\/\/www\.dygang\.net\/d\/tj\.js - reject-dict
+
+[Script]
+# 注入页面级拦截（去除悬浮、禁用 window.open/跳转）
+type=http-response,pattern=^https?:\/\/www\.dygang\.net\/.*$,requires-body=1,timeout=5,script-path=data:application/javascript;base64,aWYgKCEkcmVzcG9uc2UgfHwgISRyZXNwb25zZS5ib2R5KSB7ICRkb25lKHt9KTsgfQpsZXQgYm9keSA9ICRyZXNwb25zZS5ib2R5Owpjb25zdCBpbmplY3QgPSBgCjxzdHlsZT4KaWZyYW1lLCBpbnMsIC5hZHMsICNMYXllcjEsICNrZiwgI2tmX2Zsb2F0LCAuZmxvYXQsIC5hZCwgW2lkKj0iYWQiXSwgW2NsYXNzKj0iYWQiXSB7CiAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50Owp9Cjwvc3R5bGU+CjxzY3JpcHQ+Ci8vIEJsb2NrIG5ldyB3aW5kb3dzL3BvcHVuZGVycwp3aW5kb3cub3BlbiA9ICgpID0+IG51bGw7CndpbmRvdy5hbGVydCA9ICgpID0+IHt9Owp3aW5kb3cuY29uZmlybSA9ICgpID0+IHRydWU7CgovLyBTdG9wIGZvcmNlZCByZWRpcmVjdHMgdGhhdCByZWx5IG9uIGhhc2ggb3IgVUEKT2JqZWN0LmRlZmluZVByb3BlcnR5KHdpbmRvdywgJ2xvY2F0aW9uJywgeyB2YWx1ZTogd2luZG93LmxvY2F0aW9uLCB3cml0YWJsZTogZmFsc2UgfSk7CgovLyBDYW5jZWwgY2xpY2stdG8tYWQgbGlua3MgdG8ga25vd24gZG9tYWlucwpjb25zdCBibG9ja2VkID0gLyhkeWcxMjNcLm5ldHw2Nmhhb1wuY2N8NjZ0dXR1cFwuY29tfGhhbzZ2XC5jY3w1MjY2eXNcLmNvbSkvaTsKZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoZSkgPT4gewogIGNvbnN0IGEgPSBlLnRhcmdldC5jbG9zZXN0KCdhJyk7CiAgaWYgKCFhKSByZXR1cm47CiAgaWYgKGJsb2NrZWQudGVzdChhLmhyZWYpKSB7CiAgICBlLnByZXZlbnREZWZhdWx0KCk7CiAgICBlLnN0b3BJbW1lZGlhdGVQcm9wYWdhdGlvbigpOwogIH0KfSwgdHJ1ZSk7Cjwvc2NyaXB0PmA7CmlmICgvPFwvaGVhZD4vaS50ZXN0KGJvZHkpKSB7CiAgYm9keSA9IGJvZHkucmVwbGFjZSgvPFwvaGVhZD4vaSwgaW5qZWN0ICsgJzwvaGVhZD4nKTsKfSBlbHNlIHsKICBib2R5ID0gaW5qZWN0ICsgYm9keTsKfQokZG9uZSh7IGJvZHkgfSk7Cg==
