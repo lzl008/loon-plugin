@@ -1,0 +1,56 @@
+! ============================
+! dygang.net 专用去广告规则
+! ============================
+
+! 去顶部横幅广告
+dygang.net##.header:style(display: none !important)
+dygang.net##.topad
+dygang.net##div[id^="topad"]
+
+! 去底部悬浮广告
+dygang.net##.footerad
+dygang.net##div[id^="float"]
+dygang.net##div[class*="float"]
+dygang.net##[style*="position: fixed"][style*="bottom"]
+
+! 去右侧悬浮广告
+dygang.net##div[id^="kf"]
+dygang.net##div[class*="kf"]
+
+! 去 iframe 广告（电影港大量广告靠 iframe）
+dygang.net##iframe[src*="ads"]
+dygang.net##iframe[src*="ad"]
+dygang.net##iframe[src*="pop"]
+dygang.net##iframe[src*="click"]
+dygang.net##iframe[src*="jump"]
+
+! 去混淆 JS 弹窗
+||dygang.net/js/*ad*.js$script
+||dygang.net/js/*pop*.js$script
+||dygang.net/js/*click*.js$script
+||dygang.net/js/*jump*.js$script
+
+! 去自动跳转广告
+||dygang.net/*redirect*$script
+||dygang.net/*jump*$script
+||dygang.net/*go.php*$script
+
+! 去详情页广告块
+dygang.net##.ad
+dygang.net##.ads
+dygang.net##.adsbox
+dygang.net##div[id^="ads"]
+dygang.net##div[class*="ads"]
+
+! 去下载页广告
+dygang.net##.downad
+dygang.net##div[id^="downad"]
+dygang.net##div[class*="downad"]
+
+! 去站内推荐广告（伪装成推荐内容）
+dygang.net##.tuijian
+dygang.net##div[class*="tj"]
+dygang.net##div[id*="tj"]
+
+! 去所有固定定位广告
+dygang.net##[style*="position:fixed"]
